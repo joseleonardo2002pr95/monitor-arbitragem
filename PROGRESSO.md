@@ -11,6 +11,10 @@ sinal de decisão e simulador de aumento de mão (DCA). Público: iniciante.
 
 **Prioridade combinada com José:** 1º deixar FUNCIONAL ✅. 2º design (próxima fase).
 
+## Repositório
+Público no GitHub: https://github.com/joseleonardo2002pr95/monitor-arbitragem (branch `main`, criado em 2026-10-03).
+Commits usam o e-mail noreply do GitHub (não expor o Gmail). Depois de cada etapa: `git add -A && git commit && git push`.
+
 ## Como rodar
 ```bash
 cd ~/Documents/Projetos/monitor-arbitragem
