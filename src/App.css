@@ -1,0 +1,107 @@
+/* CSS FUNCIONAL MÍNIMO — o design de verdade é a etapa E10. */
+:root {
+  --bg: #0b0e14;
+  --card: #141922;
+  --line: #262d3a;
+  --text: #e6e9ef;
+  --muted: #8b93a3;
+  --green: #10b981;
+  --blue: #3b82f6;
+  --yellow: #f59e0b;
+  --red: #ef4444;
+  color-scheme: dark;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 15px;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); }
+.app { max-width: 1200px; margin: 0 auto; padding: 16px; }
+h1 { font-size: 1.3rem; margin: 0; }
+h2 { font-size: 1.15rem; margin: 0 0 8px; }
+h3 { font-size: 0.95rem; margin: 0 0 8px; color: var(--muted); }
+.top { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px; margin-bottom: 16px; }
+.box { border: 1px solid var(--line); border-radius: 8px; padding: 12px; margin-top: 12px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+.grid .box { margin-top: 0; }
+.op-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.kv { display: flex; justify-content: space-between; gap: 8px; padding: 3px 0; border-bottom: 1px dashed #1f2530; font-variant-numeric: tabular-nums; }
+.kv.strong { font-weight: 700; font-size: 1.05rem; }
+.kv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); column-gap: 16px; }
+.pos { color: var(--green); }
+.neg { color: var(--red); }
+.muted { color: var(--muted); }
+.small { font-size: 0.85rem; }
+.warn { color: var(--yellow); }
+.error { color: var(--red); }
+code { background: #1f2530; padding: 1px 5px; border-radius: 4px; }
+
+button { background: #1f2530; color: var(--text); border: 1px solid var(--line); border-radius: 6px; padding: 7px 12px; cursor: pointer; font: inherit; }
+button:hover { border-color: var(--muted); }
+button.primary { background: var(--blue); border-color: var(--blue); }
+button.danger { color: var(--red); }
+button.small { padding: 3px 8px; font-size: 0.8rem; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.form label, .box label { display: flex; flex-direction: column; gap: 4px; font-size: 0.9rem; margin-bottom: 10px; flex: 1; min-width: 160px; }
+.row { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+input, select, textarea { background: #0f131a; color: var(--text); border: 1px solid var(--line); border-radius: 6px; padding: 8px; font: inherit; }
+input[type='range'] { padding: 0; }
+.presets { display: flex; gap: 6px; margin-bottom: 10px; }
+.hint { color: var(--muted); font-size: 0.82rem; margin: -4px 0 10px; }
+.result { padding: 10px; border-radius: 8px; margin: 8px 0 12px; border: 1px solid var(--line); }
+.result.pos { border-color: var(--green); color: var(--text); }
+.result.neg { border-color: var(--red); color: var(--text); }
+details summary { cursor: pointer; color: var(--muted); margin-bottom: 8px; }
+
+.status { font-size: 0.8rem; }
+.status-ao-vivo { color: var(--green); }
+.status-conectando, .status-reconectando { color: var(--yellow); }
+.status-parado { color: var(--muted); }
+
+.signal { border-radius: 10px; padding: 14px; margin-bottom: 12px; border: 2px solid; animation: pop 0.35s ease; }
+.signal-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 4px; }
+.signal ul { margin: 8px 0 0; padding-left: 20px; }
+.signal-verde { border-color: var(--green); background: rgba(16, 185, 129, 0.08); }
+.signal-amarelo { border-color: var(--yellow); background: rgba(245, 158, 11, 0.08); }
+.signal-azul { border-color: var(--blue); background: rgba(59, 130, 246, 0.08); }
+.signal-vermelho { border-color: var(--red); background: rgba(239, 68, 68, 0.1); }
+@keyframes pop { from { transform: scale(0.98); opacity: 0.4; } to { transform: scale(1); opacity: 1; } }
+
+.bar { height: 14px; background: #1f2530; border-radius: 7px; overflow: hidden; margin-bottom: 8px; }
+.bar-fill { height: 100%; transition: width 0.3s; }
+.bar-ok { background: var(--green); }
+.bar-warn { background: var(--yellow); }
+.bar-danger { background: var(--red); }
+
+.help { position: relative; display: inline-block; }
+.help-btn { width: 18px; height: 18px; padding: 0; border-radius: 50%; font-size: 0.7rem; line-height: 16px; color: var(--muted); }
+.help-pop { position: absolute; z-index: 10; top: 22px; left: 0; width: 260px; background: #222a37; border: 1px solid var(--line); border-radius: 8px; padding: 10px; font-size: 0.85rem; font-weight: 400; color: var(--text); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); }
+
+.modal-bg { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.65); display: flex; align-items: center; justify-content: center; padding: 16px; z-index: 50; }
+.modal { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; max-width: 620px; max-height: 90vh; overflow: auto; }
+.modal h3 { color: var(--text); margin-top: 16px; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+th, td { text-align: left; padding: 6px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.table-wrap { overflow-x: auto; }
+.empty { text-align: center; color: var(--muted); }
+footer { margin-top: 24px; text-align: center; }
+
+@media (max-width: 600px) {
+  .help-pop { width: 220px; left: -100px; }
+}
+
+.tabs { display: flex; gap: 6px; margin-bottom: 14px; border-bottom: 1px solid var(--line); }
+.tabs button { border: none; border-bottom: 2px solid transparent; border-radius: 0; background: none; padding: 8px 14px; color: var(--muted); }
+.tabs button.active { color: var(--text); border-bottom-color: var(--blue); }
+.stepper { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; font-size: 0.8rem; }
+.stepper span { padding: 3px 8px; border-radius: 12px; border: 1px solid var(--line); color: var(--muted); }
+.stepper span.done { color: var(--green); border-color: var(--green); }
+.stepper span.now { color: var(--text); border-color: var(--blue); background: rgba(59, 130, 246, 0.15); }
+.form label.check { flex-direction: row; align-items: center; gap: 8px; }
+.kv .warn, .warn { color: var(--yellow); }
+table.book td, table.book th { padding: 3px 6px; font-variant-numeric: tabular-nums; }
+tr.reach-full { background: rgba(59, 130, 246, 0.18); }
+tr.reach-part { background: rgba(59, 130, 246, 0.08); }
